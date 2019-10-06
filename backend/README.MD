@@ -27,6 +27,8 @@ API to serve the Webpage(dashboard) and mobileAPP(Spots announces)
 
 > multer
 
+> cors
+
 
 ### Code STD
 
