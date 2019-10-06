@@ -6,7 +6,7 @@ export default {
   whiteBorder: '#DDD',
   greyLight: '#999999',
   blackBackground: '#000000',
-  greymedium: '#444',
+  greyMedium: '#444',
   aibnb: '#f05a5b',
   aibnbcontrast: '#e14f50',
 };

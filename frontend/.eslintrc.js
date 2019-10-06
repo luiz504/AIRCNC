@@ -38,6 +38,7 @@ module.exports = {
       "labelAttributes": ["htmlFor"],
       "controlComponents": ["input"]
     }],
-    'react/jsx-curly-brace-presence': 'off'
+    'react/jsx-curly-brace-presence': 'off',
+    'camelcase': 'off'
   },
 };
