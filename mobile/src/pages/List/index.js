@@ -1,12 +1,30 @@
-import React from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { AsyncStorage } from 'react-native';
 
-// import { Container } from './styles';
+import logo from '../../assets/logo.png';
+import SpotList from '../../components/SpotList';
+
+import { Container, Logo, SpotListContainer } from './styles';
 
 export default function List() {
+  const [techs, setTechs] = useState([]);
+
+  useEffect(() => {
+    AsyncStorage.getItem('techs').then(storagedTechs => {
+      const techsArray = storagedTechs.split(',').map(tech => tech.trim());
+
+      setTechs(techsArray);
+    });
+  }, []);
+
   return (
-    <SafeAreaView>
-      <Text>Dashboard</Text>
-    </SafeAreaView>
+    <Container>
+      <Logo source={logo} resizeMode="center" />
+      <SpotListContainer>
+        {techs.map(tech => (
+          <SpotList key={tech} tech={tech} />
+        ))}
+      </SpotListContainer>
+    </Container>
   );
 }
