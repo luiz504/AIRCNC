@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import colors from '../../style/color';
 
 export const List = styled.ul`
@@ -30,4 +31,16 @@ export const List = styled.ul`
     font-size: 15px;
     color: ${colors.greyLight};
   }
+`;
+export const HeaderContainer = styled.header`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const LogoutButton = styled.button`
+  margin-left: 90%;
+  background: none;
+  border: none;
 `;

@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { MdExitToApp } from 'react-icons/md';
+import socketio from 'socket.io-client';
 import api from '../../services/api';
 
+import colors from '../../style/color';
 import { Container, Logo } from '../../components/container';
 import { GlobalButton } from '../../components/Button';
-import { List } from './styles';
+import { List, HeaderContainer, LogoutButton } from './styles';
 
-export default function Home() {
+export default function Dashboard({ history }) {
   const [spots, setSpots] = useState([]);
+
+  useEffect(() => {
+    const socket = socketio(process.env.API_URL);
+  }, []);
 
   useEffect(() => {
     async function loadSpots() {
@@ -23,9 +30,21 @@ export default function Home() {
   }, [
     /* filters */
   ]);
+
+  async function handleLogout() {
+    await localStorage.clear();
+
+    history.push('/');
+  }
   return (
     <Container>
-      <Logo />
+      <HeaderContainer>
+        <Logo />
+        <LogoutButton onClick={handleLogout}>
+          <MdExitToApp size={60} color={colors.whiteBase} />
+        </LogoutButton>
+      </HeaderContainer>
+
       <div>
         <List>
           {spots.map(spot => (
@@ -34,7 +53,7 @@ export default function Home() {
                 style={{ backgroundImage: `url(${spot.thumbnail_url})` }}
               />
               <strong>{spot.company}</strong>
-              <span>{spot.price ? `R$${spot.price} per day` : 'Free'}</span>
+              <span>{spot.price ? `R$${spot.price}/day` : 'Free'}</span>
             </li>
           ))}
         </List>

@@ -29,6 +29,8 @@ API to serve the Webpage(dashboard) and mobileAPP(Spots announces)
 
 > cors
 
+> socket.io
+
 
 ### Code STD
 
