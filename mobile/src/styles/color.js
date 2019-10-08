@@ -4,4 +4,5 @@ export default {
   greyDark: '#444',
   grayLight: '#999',
   airbnbColor: '#f05a5b',
+  greybuttom: '#ccc',
 };
