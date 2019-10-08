@@ -11,4 +11,6 @@ export const Logo = styled.Image`
   margin-top: 10px;
 `;
 
-export const SpotListContainer = styled.ScrollView``;
+export const SpotListContainer = styled.ScrollView`
+  margin: 5px 0;
+`;

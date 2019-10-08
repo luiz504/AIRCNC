@@ -26,7 +26,7 @@ export const ListItem = styled.View`
 
 export const ListItemImage = styled.Image`
   width: 250;
-  height: 120;
+  height: 200;
   border-radius: 2px;
   background: #ddd;
 `;
@@ -57,4 +57,5 @@ export const ListItemButtonText = styled.Text`
   color: ${colors.whiteBase};
   font-weight: bold;
   font-size: 15px;
+  text-transform: uppercase;
 `;

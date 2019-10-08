@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { withNavigation } from 'react-navigation';
 
 import api from '../../services/api';
-
-import logo from '../../assets/logo.png';
 
 import {
   SpotContainer,
@@ -17,7 +16,7 @@ import {
   ListItemButtonText,
 } from './styles';
 
-export default function SpotList({ tech }) {
+function SpotList({ tech, navigation }) {
   const [spots, setSpots] = useState();
 
   useEffect(() => {
@@ -31,6 +30,10 @@ export default function SpotList({ tech }) {
     loadSpots();
   }, []);
 
+  function handleNavigate(id) {
+    navigation.navigate('Book', { id });
+  }
+
   return (
     <SpotContainer>
       <SpotTitle>
@@ -43,12 +46,15 @@ export default function SpotList({ tech }) {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <ListItem>
-            <ListItemImage source={logo} resizeMode="center" />
+            <ListItemImage
+              source={{ uri: item.thumbnail_url }}
+              resizeMode="center"
+            />
             <ListItemCompany>{item.company}</ListItemCompany>
             <ListitemPrice>
               {item.price ? `R$${item.price}/day` : 'Free'}
             </ListitemPrice>
-            <ListItemButton onPress={() => {}}>
+            <ListItemButton onPress={() => handleNavigate(item.id)}>
               <ListItemButtonText>Request Reservation</ListItemButtonText>
             </ListItemButton>
           </ListItem>
@@ -57,3 +63,5 @@ export default function SpotList({ tech }) {
     </SpotContainer>
   );
 }
+
+export default withNavigation(SpotList);

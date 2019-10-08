@@ -33,6 +33,7 @@ module.exports = {
       }
     ],
     'no-console': 'off',
-    'import/prefer-default-export': 'off'
+    'import/prefer-default-export': 'off',
+    'camelcase': 'off'
   },
 };
