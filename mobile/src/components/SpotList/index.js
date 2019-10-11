@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 
 import api from '../../services/api';
@@ -17,6 +18,7 @@ import {
 } from './styles';
 
 function SpotList({ tech, navigation }) {
+  // console.tron.log(navigation, tech);
   const [spots, setSpots] = useState();
 
   useEffect(() => {
@@ -65,3 +67,10 @@ function SpotList({ tech, navigation }) {
 }
 
 export default withNavigation(SpotList);
+
+SpotList.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
+  tech: PropTypes.string.isRequired,
+};

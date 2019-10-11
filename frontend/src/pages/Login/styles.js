@@ -12,7 +12,7 @@ export const Form = styled.form`
 
   label {
     font-size: 14px;
-    color: ${colors.greymedium};
+    color: ${colors.greyMedium};
     font-weight: bold;
     margin-bottom: 8px;
   }

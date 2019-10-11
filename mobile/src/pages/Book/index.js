@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Proptypes from 'prop-types';
 import { AsyncStorage, Alert } from 'react-native';
 import colors from '../../styles/color';
 
@@ -14,6 +15,7 @@ import {
 } from './styles';
 
 export default function Book({ navigation }) {
+  console.tron.log(navigation);
   const [date, setDate] = useState('');
   const id = navigation.getParam('id');
 
@@ -55,3 +57,10 @@ export default function Book({ navigation }) {
     </Container>
   );
 }
+
+Book.propTypes = {
+  navigation: Proptypes.shape({
+    getParam: Proptypes.func,
+    navigate: Proptypes.func,
+  }).isRequired,
+};

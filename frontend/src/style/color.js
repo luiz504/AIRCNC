@@ -7,6 +7,8 @@ export default {
   greyLight: '#999999',
   blackBackground: '#000000',
   greyMedium: '#444',
+  greyButtom: '#aaa',
   aibnb: '#f05a5b',
-  aibnbcontrast: '#e14f50',
+  greenButtonAcept: '#84c870',
+  redButtonReject: '#e55e5e',
 };

@@ -15,6 +15,24 @@ export const GlobalButton = styled.button`
   color: ${colors.whiteBase};
 
   &:hover {
-    background: ${darken(0.02, colors.aibnbcontrast)};
+    background: ${darken(0.02, colors.aibnb)};
+  }
+`;
+
+export const GlobalButtonGrey = styled.button`
+  border: 0;
+  border-radius: 2px;
+  width: 100%;
+  height: 42px;
+  padding: 0 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: ${colors.greyButtom};
+  color: ${colors.whiteBase};
+  margin-top: 10px;
+
+  &:hover {
+    background: ${darken(0.02, colors.greyButtom)};
   }
 `;
