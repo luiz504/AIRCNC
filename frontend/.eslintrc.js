@@ -32,13 +32,14 @@ module.exports = {
         extensions: ['.jsx', '.js']
       }
     ],
-    'import/prefer-default-export': 'off',
+    'import/prefer-default-export': 'error',
     "jsx-a11y/label-has-associated-control": [ 2, {
       "labelComponents": ["label"],
       "labelAttributes": ["htmlFor"],
       "controlComponents": ["input"]
     }],
     'react/jsx-curly-brace-presence': 'off',
-    'camelcase': 'off'
+    'camelcase': 'off',
+    'no-underscore-dangle': 'off'
   },
 };

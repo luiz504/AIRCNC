@@ -12,7 +12,7 @@ class App {
   constructor() {
     this.server = express();
 
-    this.socket();
+    this.Iosocket();
     this.middlewares();
     this.routes();
   }
@@ -30,23 +30,22 @@ class App {
     this.server.use(routes);
   }
 
-  socket() {
+  Iosocket() {
     this.socketServer = http.Server(this.server);
     this.io = socketio(this.socketServer);
+    this.connectedUsers = {};
 
-    this.io.on('connection', socketparam => {
-      console.log('Connected USer', socketparam.id);
+    this.io.on('connection', socket => {
+      const { user_id } = socket.handshake.query;
+      this.connectedUsers[user_id] = socket.id;
+    });
+
+    this.server.use((req, res, next) => {
+      req.io = this.io;
+      req.connectedUsers = this.connectedUsers;
+      return next();
     });
   }
 }
 
-export default new App().server;
-
-// const app = express()
-// // const server = http.Server(app)
-// // const io= socketio(server)
-
-// //   io.on('connection', socket => {
-// //     console.log('user connected', socket.id)
-// //   })
-// server.listen(3333)
+export default new App().socketServer;

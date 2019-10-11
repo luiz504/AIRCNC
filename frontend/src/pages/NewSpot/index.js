@@ -5,7 +5,7 @@ import api from '../../services/api';
 import camera from '../../assets/camera.svg';
 
 import { Container, Logo } from '../../components/container';
-import { GlobalButton } from '../../components/Button';
+import { GlobalButton, GlobalButtonGrey } from '../../components/Button';
 import { Form } from './styles';
 
 export default function NewSpot({ history }) {
@@ -36,6 +36,7 @@ export default function NewSpot({ history }) {
   return (
     <Container>
       <Logo />
+
       <div>
         <Form onSubmit={handleSubmit}>
           <label
@@ -79,6 +80,12 @@ export default function NewSpot({ history }) {
             onChange={event => setPrice(event.target.value)}
           />
           <GlobalButton>Register</GlobalButton>
+          <GlobalButtonGrey
+            type="button"
+            onClick={() => history.push('/dashboard')}
+          >
+            Cancel
+          </GlobalButtonGrey>
         </Form>
       </div>
     </Container>
