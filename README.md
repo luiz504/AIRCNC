@@ -20,12 +20,14 @@ Clone the project
 
 ** /frontend 
 
+- inside the folder - $ yarn - to install dependencies.
 - $ yarn start - to turn it on
 
 ** /mobile 
 
 - required Expo installed global in your machine ( for USB emulation download expo from AppStore/ PlayStore ).
 
+- inside the folder - $ yarn - to install dependencies.
 - $ yarn start - to turn it on
 
 
