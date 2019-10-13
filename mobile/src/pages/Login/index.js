@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AsyncStorage, Alert } from 'react-native';
+import PropTypes from 'prop-types';
 
 import colors from '../../styles/color';
 
@@ -14,6 +15,7 @@ import {
   FindButtom,
   FindButtomText,
 } from './styles';
+
 import api from '../../services/api';
 
 export default function Login({ navigation }) {
@@ -75,3 +77,8 @@ export default function Login({ navigation }) {
     </Container>
   );
 }
+Login.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
+};

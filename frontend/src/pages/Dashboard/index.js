@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MdExitToApp } from 'react-icons/md';
 import socketio from 'socket.io-client';
+import { parseISO, format } from 'date-fns';
 import api from '../../services/api';
+import { formatPrice } from '../../util/format';
 
 import colors from '../../style/color';
 import { Container, Logo } from '../../components/container';
@@ -74,7 +76,7 @@ export default function Dashboard({ history }) {
               <p>
                 <strong>{request.user.email}</strong> did a request for the spot{' '}
                 <strong>{request.spot.company}</strong> for data :{' '}
-                {request.date}
+                {format(parseISO(request.date), 'MMMM do')}
               </p>
               <button
                 type="button"
@@ -100,7 +102,9 @@ export default function Dashboard({ history }) {
                 style={{ backgroundImage: `url(${spot.thumbnail_url})` }}
               />
               <strong>{spot.company}</strong>
-              <span>{spot.price ? `R$${spot.price}/day` : 'Free'}</span>
+              <span>
+                {spot.price ? `${formatPrice(spot.price)}/day` : 'Free'}
+              </span>
             </li>
           ))}
         </List>

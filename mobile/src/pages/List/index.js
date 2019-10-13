@@ -5,6 +5,9 @@ import Proptypes from 'prop-types';
 import { AsyncStorage, Alert } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { format, parseISO } from 'date-fns';
+
+import getEnvVars from '../../../environment';
 import logo from '../../assets/logo.png';
 import colors from '../../styles/color';
 
@@ -21,16 +24,19 @@ import {
 export default function List({ navigation }) {
   const [techs, setTechs] = useState([]);
 
+  const { apiUrl } = getEnvVars();
+
   useEffect(() => {
     AsyncStorage.getItem('user').then(user_id => {
-      const socket = socketio('http://192.168.25.124:3333', {
+      const socket = socketio(apiUrl, {
         query: { user_id },
       });
       socket.on('booking_response', booking => {
         Alert.alert(
-          `Your reservation on ${booking.spot.company} on ${booking.date} was ${
-            booking.approved ? 'approved' : 'rejected'
-          }`
+          `Your reservation on ${booking.spot.company} on ${format(
+            parseISO(booking.date),
+            'MMMM do'
+          )} was  ${booking.approved ? 'APPROVED' : 'REJECTED'}`
         );
       });
     });

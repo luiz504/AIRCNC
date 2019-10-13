@@ -8,15 +8,17 @@ import api from '../../services/api';
 import {
   Container,
   BookLabel,
-  BookInput,
+  BookCalendar,
   BookButtonRequest,
   BookButtonCancel,
   BookButtonText,
 } from './styles';
 
 export default function Book({ navigation }) {
-  console.tron.log(navigation);
+  const minDate = new Date();
+
   const [date, setDate] = useState('');
+  console.tron.log(date);
   const id = navigation.getParam('id');
 
   async function handleSubmit() {
@@ -37,22 +39,28 @@ export default function Book({ navigation }) {
   function handleCancel() {
     navigation.navigate('List');
   }
+
+  function handleDateChange(dateCalendar) {
+    setDate(dateCalendar);
+  }
   return (
     <Container>
       <BookLabel>Data of Interest *</BookLabel>
-      <BookInput
-        placeholder="What data do you want to book?"
-        placeholderTextColor={colors.grayLight}
-        autoCapitalize="words"
-        autoCorrect={false}
-        value={date}
-        onChangeText={setDate}
+
+      <BookCalendar
+        weekdays={['Mon', 'Tue', 'Wed', 'Thu', 'Fri']}
+        minDate={minDate}
+        swipe
+        startFromMonday
+        selectedDayColor={colors.airbnbColor}
+        onDateChange={handleDateChange}
       />
+
       <BookButtonRequest onPress={handleSubmit}>
         <BookButtonText>Request reservation</BookButtonText>
       </BookButtonRequest>
       <BookButtonCancel onPress={handleCancel}>
-        <BookButtonText>Cancel reservation</BookButtonText>
+        <BookButtonText>Cancel </BookButtonText>
       </BookButtonCancel>
     </Container>
   );

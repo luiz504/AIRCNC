@@ -1,6 +1,6 @@
 # Backend AIRCNC
 
-API to serve the Webpage(dashboard) and mobileAPP(Spots announces)
+API to serve the Webpage(Spots manipulations) and mobile app (Spots List by techs / booking)
 
 ## Routes
 
@@ -12,11 +12,26 @@ API to serve the Webpage(dashboard) and mobileAPP(Spots announces)
 
 > */spots - get - List Spot by Tech
 
+> */spots/:spot_id/bookings - post - Booking spots
+
 > */dashboard - get - List owners spots
 
-> */Booking- post - Booking spots
+> */bookings/:booking_id/approvals  - post - accept booking
+
+> */bookings/:booking_id/rejections - post - reject booking
+
+## Next Tasks
+
+- [ ] Data entry validations
+- [ ] Logic entry validations
+- [ ] Delete/update Book/spot/user controllers
+- [ ] Redis integration
+- [ ] Auto e-mail integration / queue
+- [ ] Password/Hash creation and validation
+- [ ] Middleware /sessions with token validation
 
 ## Libraries
+
 > express
 
 > nodemon
@@ -31,15 +46,21 @@ API to serve the Webpage(dashboard) and mobileAPP(Spots announces)
 
 > socket.io
 
+> dotenv
+
 
 ### Code STD
 
-> ESlint
+> ESlint - AIRBNB
 
 > Prettier
 
 > editorConfig
 
-#### Databa Base
+#### DataBase
 
 > mongoDB / docker
+
+#### Third Apps
+
+> Insomnia

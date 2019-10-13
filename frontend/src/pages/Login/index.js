@@ -16,7 +16,6 @@ export default function Login({ history }) {
       email,
     });
     const { id } = response.data;
-
     localStorage.setItem('user', id);
 
     history.push('/dashboard');
@@ -38,6 +37,7 @@ export default function Login({ history }) {
             placeholder="email@email.com"
             value={email}
             onChange={event => setEmail(event.target.value)}
+            autoComplete="off"
           />
           <GlobalButton type="submit">Enter</GlobalButton>
         </Form>

@@ -34,6 +34,8 @@ module.exports = {
     ],
     'no-console': 'off',
     'import/prefer-default-export': 'off',
-    'camelcase': 'off'
+    'camelcase': 'off',
+    'global-require': 'off',
+    'consistent-return': 'off'
   },
 };

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import CalendarPicker from 'react-native-calendar-picker';
 import colors from '../../styles/color';
 
 export const Container = styled.View`
@@ -13,15 +14,8 @@ export const BookLabel = styled.Text`
   margin-bottom: 8px;
   text-transform: uppercase;
 `;
-export const BookInput = styled.TextInput`
-  border: 1px solid ${colors.whiteBorder};
-  padding: 0 20px;
-  font-size: 16px;
-  color: ${colors.greyDark};
-  height: 44px;
-  margin-bottom: 20px;
-  border-radius: 2px;
-`;
+
+export const BookCalendar = styled(CalendarPicker)``;
 
 export const BookButtonRequest = styled.TouchableOpacity`
   height: 42px;
