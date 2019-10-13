@@ -6,6 +6,8 @@ class BookingController {
     const { spot_id } = req.params;
     const { date } = req.body;
 
+    // const parsedDate = parseISO(date);
+
     const booking = await Booking.create({
       user: user_id,
       spot: spot_id,

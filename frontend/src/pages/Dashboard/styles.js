@@ -44,7 +44,7 @@ export const LogoutButton = styled.button`
   background: none;
   border: none;
   &:hover {
-    color: ;
+    color: ${colors.whiteBase};
   }
 `;
 

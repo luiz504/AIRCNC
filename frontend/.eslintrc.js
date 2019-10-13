@@ -40,6 +40,7 @@ module.exports = {
     }],
     'react/jsx-curly-brace-presence': 'off',
     'camelcase': 'off',
-    'no-underscore-dangle': 'off'
+    'no-underscore-dangle': 'off',
+    'import/prefer-default-export': 'off'
   },
 };

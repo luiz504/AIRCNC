@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
+import { formatPrice } from '../../util/format';
 
 import api from '../../services/api';
 
@@ -18,7 +19,6 @@ import {
 } from './styles';
 
 function SpotList({ tech, navigation }) {
-  // console.tron.log(navigation, tech);
   const [spots, setSpots] = useState();
 
   useEffect(() => {
@@ -54,7 +54,7 @@ function SpotList({ tech, navigation }) {
             />
             <ListItemCompany>{item.company}</ListItemCompany>
             <ListitemPrice>
-              {item.price ? `R$${item.price}/day` : 'Free'}
+              {item.price ? `${formatPrice(item.price)}/day` : 'Free'}
             </ListitemPrice>
             <ListItemButton onPress={() => handleNavigate(item.id)}>
               <ListItemButtonText>Request Reservation</ListItemButtonText>
